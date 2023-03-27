@@ -11,6 +11,7 @@ import androidx.navigation.navArgument
 import com.jephtecolin.varoflix.ui.detail.MovieDetail
 import com.jephtecolin.varoflix.ui.favorite.FavoriteScreen
 import com.jephtecolin.varoflix.ui.home.HomeScreen
+import com.jephtecolin.varoflix.ui.search.SearchScreen
 
 @Composable
 fun AppNavigation(
@@ -29,6 +30,9 @@ fun AppNavigation(
                         backStackEntry
                     )
                 },
+                navigateToSearch = {
+                    appState.navigateToSearch()
+                },
                 navigateToFavorite = {
                     appState.navigateToFavorite()
                 }
@@ -46,6 +50,12 @@ fun AppNavigation(
             FavoriteScreen(
                 viewModel = hiltViewModel(),
             onBackPressed = { appState.navigateBack()})
+        }
+
+        composable(Screen.SearchMovie.route) {
+            SearchScreen(
+                viewModel = hiltViewModel(),
+                onBackPress = { appState.navigateBack()})
         }
 
     }

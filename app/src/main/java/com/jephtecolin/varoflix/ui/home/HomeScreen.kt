@@ -23,11 +23,15 @@ import com.jephtecolin.varoflix.ui.components.TopBar
 fun HomeScreen(
     viewModel: HomeViewModel,
     navigateToMovie: (String) -> Unit,
+    navigateToSearch: () -> Unit,
     navigateToFavorite: () -> Unit
 ) {
     val movies by viewModel.movies.collectAsState()
 
-    Scaffold(topBar = { TopBar(onFavoriteClick = navigateToFavorite) }) { paddingValues ->
+    Scaffold(topBar = { TopBar(
+        onSearchClick = navigateToSearch,
+        onFavoriteClick = navigateToFavorite
+    ) }) { paddingValues ->
         Surface(
             modifier = Modifier
                 .fillMaxSize()

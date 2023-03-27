@@ -3,6 +3,7 @@ package com.jephtecolin.varoflix.ui.components
 import androidx.compose.foundation.Image
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -13,6 +14,7 @@ import com.jephtecolin.varoflix.R
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopBar(
+    onSearchClick: () -> Unit,
     onFavoriteClick: () -> Unit
 ) {
     TopAppBar(
@@ -25,6 +27,9 @@ fun TopBar(
             )
         },
         actions = {
+            IconButton(onClick = onSearchClick) {
+                Icon(Icons.Filled.Search, contentDescription = null, tint = Color.White)
+            }
             IconButton(onClick = onFavoriteClick) {
                 Icon(Icons.Filled.Favorite, contentDescription = null, tint = Color.White)
             }

@@ -25,4 +25,13 @@ class MovieDataSource @Inject constructor(private val tmdbService: TMDBService) 
             Timber.d("Error fetching movie detail: %s", result.message())
         }
     }
+
+    fun getMoviesByKeywords(keywords: String): Flow<MoviesResponseModel?> = flow {
+        val result = tmdbService.getMoviesByKeywords(keywords)
+        if(result.isSuccessful) {
+            emit(result.body())
+        } else {
+            Timber.d("Error fetching movie search: %s", result.message())
+        }
+    }
 }

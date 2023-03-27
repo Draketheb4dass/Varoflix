@@ -14,4 +14,7 @@ interface TMDBService {
 
     @GET("movie/{movie_id}")
     suspend fun getMovieDetail(@Path("movie_id") movieId: Long) : Response<MovieDetail>
+
+    @GET("search/movie")
+    suspend fun getMoviesByKeywords(@Query("query") keywords: String) : Response<MoviesResponseModel>
 }
