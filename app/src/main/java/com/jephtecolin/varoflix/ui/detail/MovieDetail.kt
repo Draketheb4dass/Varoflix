@@ -28,7 +28,9 @@ import com.jephtecolin.varoflix.data.remote.Api
 import com.jephtecolin.varoflix.R
 import com.jephtecolin.varoflix.data.model.MovieDetail
 import com.jephtecolin.varoflix.data.model.toMovie
+import com.jephtecolin.varoflix.ui.components.PulsateEffect
 import com.jephtecolin.varoflix.ui.components.PulsatingHeartIcon
+import com.jephtecolin.varoflix.ui.components.bounceClick
 
 @Composable
 fun MovieDetail(
@@ -50,7 +52,7 @@ fun MovieDetail(
                 )
             }
             TVShowSummary(summary = movieDetail?.overview?: "")
-            IconButton(onClick = { viewModel.addToFavorite(movieDetail!!.toMovie()) }) {
+            IconButton(onClick = { viewModel.addToFavorite(movieDetail!!.toMovie()) }, modifier = Modifier.bounceClick()) {
                 Icon(Icons.Filled.Favorite, contentDescription = null, tint = Color.Red)
             }
         }
