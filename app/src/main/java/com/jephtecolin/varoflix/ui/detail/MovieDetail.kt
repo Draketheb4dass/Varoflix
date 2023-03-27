@@ -28,8 +28,6 @@ import com.jephtecolin.varoflix.data.remote.Api
 import com.jephtecolin.varoflix.R
 import com.jephtecolin.varoflix.data.model.MovieDetail
 import com.jephtecolin.varoflix.data.model.toMovie
-import com.jephtecolin.varoflix.ui.components.PulsateEffect
-import com.jephtecolin.varoflix.ui.components.PulsatingHeartIcon
 import com.jephtecolin.varoflix.ui.components.bounceClick
 
 @Composable
