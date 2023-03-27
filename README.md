@@ -32,7 +32,7 @@ The following **optional** features are implemented:
 
 * [ ] Enable sorting movies by rating, release date, title, etc.
 * [x] Enable searching for movies.
-* [ ] Show off some animation skills.
+* [x] Show off some animation skills.
 * [ ] Add the ability to view local showtimes.
 
 
