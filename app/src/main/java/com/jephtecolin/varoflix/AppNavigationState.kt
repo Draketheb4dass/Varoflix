@@ -12,7 +12,7 @@ import androidx.navigation.compose.rememberNavController
 sealed class Screen(val route: String) {
     object Home : Screen("home")
     object MovieDetail : Screen("detail") {
-        fun createRoute(movieId: String) = "$movieId"
+        fun createRoute(movieId: String) = movieId
     }
 }
 

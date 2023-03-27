@@ -1,5 +1,6 @@
 package com.jephtecolin.varoflix.data.remote
 
+import com.jephtecolin.varoflix.data.model.MovieDetail
 import com.jephtecolin.varoflix.data.remote.response.MoviesResponseModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -13,6 +14,15 @@ class MovieDataSource @Inject constructor(private val tmdbService: TMDBService) 
             emit(result.body())
         } else {
             Timber.d("Error fetching now playing movies: %s", result.errorBody())
+        }
+    }
+
+    fun getMovieDetail(movieId: Long): Flow<MovieDetail?> = flow {
+        val result = tmdbService.getMovieDetail(movieId)
+        if(result.isSuccessful) {
+            emit(result.body())
+        } else {
+            Timber.d("Error fetching movie detail: %s", result.message())
         }
     }
 }

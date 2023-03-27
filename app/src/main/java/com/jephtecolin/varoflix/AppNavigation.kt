@@ -34,7 +34,6 @@ fun AppNavigation(
             type = NavType.LongType
         })) { backStackEntry ->
             MovieDetail(
-                movieId = backStackEntry.arguments!!.getLong("movieId"),
                 viewModel = hiltViewModel(),
                 onBackPressed = { appState.navigateBack()})
         }
