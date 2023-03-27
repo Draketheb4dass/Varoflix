@@ -2,4 +2,10 @@
 <resources>
 
     <style name="Theme.Varoflix" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="Theme.Varoflix.SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_app_icon</item>
+        <item name="postSplashScreenTheme">@style/Theme.Varoflix</item>
+    </style>
 </resources>

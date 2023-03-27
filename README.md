@@ -36,6 +36,9 @@ The following **optional** features are implemented:
 * [ ] Add the ability to view local showtimes.
 
 
+  The following **optional** features are implemented:
+* [x] Add Splash Screen.
+
 
 
 ## Libraries and tools 🛠
