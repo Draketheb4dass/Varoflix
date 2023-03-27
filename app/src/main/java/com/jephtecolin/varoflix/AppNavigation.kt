@@ -9,6 +9,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.jephtecolin.varoflix.ui.detail.MovieDetail
+import com.jephtecolin.varoflix.ui.favorite.FavoriteScreen
 import com.jephtecolin.varoflix.ui.home.HomeScreen
 
 @Composable
@@ -27,15 +28,24 @@ fun AppNavigation(
                         "${Screen.MovieDetail.route}/${movieId}",
                         backStackEntry
                     )
+                },
+                navigateToFavorite = {
+                    appState.navigateToFavorite()
                 }
             )
         }
         composable("${Screen.MovieDetail.route}/{movieId}" , arguments = listOf(navArgument("movieId"){
             type = NavType.LongType
-        })) { backStackEntry ->
+        })) {
             MovieDetail(
                 viewModel = hiltViewModel(),
                 onBackPressed = { appState.navigateBack()})
+        }
+
+        composable(Screen.FavoriteMovie.route) {
+            FavoriteScreen(
+                viewModel = hiltViewModel(),
+            onBackPressed = { appState.navigateBack()})
         }
 
     }

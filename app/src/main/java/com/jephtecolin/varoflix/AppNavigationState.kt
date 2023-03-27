@@ -14,6 +14,7 @@ sealed class Screen(val route: String) {
     object MovieDetail : Screen("detail") {
         fun createRoute(movieId: String) = movieId
     }
+    object FavoriteMovie : Screen("favorite_movie")
 }
 
 @Composable
@@ -34,6 +35,10 @@ class VaroflixAppState(
         if (from.lifecycleIsResumed()) {
             navController.navigate(Screen.MovieDetail.createRoute(movieUri))
         }
+    }
+
+    fun navigateToFavorite() {
+        navController.navigate(Screen.FavoriteMovie.route)
     }
 
     fun navigateBack() {

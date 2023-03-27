@@ -1,4 +1,4 @@
-package com.jephtecolin.varoflix.ui.home
+package com.jephtecolin.varoflix.ui.favorite
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -16,18 +16,17 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.jephtecolin.varoflix.ui.components.MovieCard
-import com.jephtecolin.varoflix.ui.components.TopBar
-
+import com.jephtecolin.varoflix.ui.components.TopBarFavorite
 
 @Composable
-fun HomeScreen(
-    viewModel: HomeViewModel,
-    navigateToMovie: (String) -> Unit,
-    navigateToFavorite: () -> Unit
+fun FavoriteScreen(
+    viewModel: FavoriteViewModel,
+    onBackPressed: () -> Unit
 ) {
-    val movies by viewModel.movies.collectAsState()
 
-    Scaffold(topBar = { TopBar(onFavoriteClick = navigateToFavorite) }) { paddingValues ->
+    val favoriteMovies by viewModel.favoriteMovies.collectAsState()
+
+    Scaffold(topBar = { TopBarFavorite(onBackPressed = onBackPressed) }) { paddingValues ->
         Surface(
             modifier = Modifier
                 .fillMaxSize()
@@ -41,12 +40,13 @@ fun HomeScreen(
                         .statusBarsPadding()
                         .padding(horizontal = 24.dp),
                     content = {
-                        items(movies) { movie ->
-                            MovieCard(movie = movie, onClickCard = navigateToMovie)
+                        items(favoriteMovies) { favoriteMovie ->
+                            MovieCard(movie = favoriteMovie, onClickCard = {})
                         }
                     }
                 )
             }
         }
     }
+
 }

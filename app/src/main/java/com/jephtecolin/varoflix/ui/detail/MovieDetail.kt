@@ -4,6 +4,10 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -22,11 +26,13 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.jephtecolin.varoflix.data.remote.Api
 import com.jephtecolin.varoflix.R
+import com.jephtecolin.varoflix.data.model.MovieDetail
+import com.jephtecolin.varoflix.data.model.toMovie
 
 @Composable
 fun MovieDetail(
     viewModel: MovieDetailViewModel,
-    onBackPressed: () -> Unit
+    onBackPressed: () -> Unit,
 ) {
 
     val movieDetail by viewModel.movieDetail.collectAsState()
@@ -43,6 +49,9 @@ fun MovieDetail(
                 )
             }
             TVShowSummary(summary = movieDetail?.overview?: "")
+            IconButton(onClick = { viewModel.addToFavorite(movieDetail!!.toMovie()) }) {
+                Icon(Icons.Filled.Favorite, contentDescription = null, tint = Color.Red)
+            }
         }
     }
 

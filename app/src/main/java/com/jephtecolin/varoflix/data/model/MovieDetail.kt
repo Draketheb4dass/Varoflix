@@ -2,6 +2,7 @@ package com.jephtecolin.varoflix.data.model
 
 import androidx.annotation.Keep
 import androidx.annotation.NonNull
+import androidx.room.ColumnInfo
 import com.google.gson.annotations.SerializedName
 
 @Keep
@@ -24,4 +25,14 @@ data class MovieDetail(
     //@ColumnInfo(name = "vote_average")
     @SerializedName("vote_average")
     var voteAverage: Float,
+)
+
+fun MovieDetail.toMovie() = Movie(
+    id = id.toString(),
+    title = title,
+    overview = overview,
+    backdropPath = backdropPath,
+    posterPath = posterPath,
+    voteCount = voteCount,
+    voteAverage = voteAverage
 )
