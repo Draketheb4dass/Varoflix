@@ -15,6 +15,10 @@ You'll need to provide API key to fetch data from TheMovieDataBase API.
 - Build the app 🚀
 * The previous step has been done, but normally `tmdb.properties` would be gitignored to avoid adding secrets to git, but for simplicty sake it has been added to git.
 
+## Walkthrough
+https://i.imgur.com/LB8LVPr.mp4
+
+
 ## User Stories
 
 The following **required** functionality is completed:
@@ -36,7 +40,7 @@ The following **optional** features are implemented:
 
 ## Libraries and tools 🛠
 
-VaroMovieChallenge App uses libraries and tools used to build Modern Android application, mainly part of Android Jetpack 🚀
+Varoflix App uses libraries and tools used to build Modern Android application, mainly part of Android Jetpack 🚀
 
 - [Kotlin](https://kotlinlang.org/)
 - [Dagger-hilt](https://dagger.dev/hilt/)🗡
